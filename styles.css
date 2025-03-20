@@ -1,0 +1,256 @@
+/* Estilos generales */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+/* Encabezado */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background-color: #181818;
+}
+
+header h1 {
+    color: #ffffff;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Menú de navegación */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #b0b0b0;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+nav ul li a:hover {
+    color: #ffffff;
+}
+
+/* Secciones - Ocultamos todas por defecto */
+section {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+    text-align: left;
+    display: none; /* Ocultar secciones por defecto */
+}
+
+/* Mostrar solo la sección activa */
+section.active {
+    display: block;
+    animation: fadeIn 1s ease-in-out;
+}
+
+h2 {
+    color: #ffcc00;
+    border-bottom: 2px solid #ffcc00;
+    padding-bottom: 10px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #b0b0b0;
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* Botón principal */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #3a7df1;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background 0.3s;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #1d5ac8;
+}
+
+/* Lista de habilidades */
+ul.habilidades {
+    list-style: none;
+    padding: 0;
+}
+
+ul.habilidades li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #e0e0e0;
+}
+
+ul.habilidades li::before {
+    content: "✔";
+    color: #3a7df1;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Imagen en la sección Hero */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 10%;
+}
+
+.hero-text {
+    max-width: 500px;
+}
+
+.hero img {
+    max-width: 350px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilo para enlaces de contacto */
+.contact-link {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: #b0b0b0;
+    text-decoration: none;
+    margin: 10px 0;
+    transition: color 0.3s ease-in-out;
+}
+
+.contact-link i {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #3a7df1;
+}
+
+.contact-link:hover {
+    color: #ffffff;
+}
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    section {
+        padding: 20px;
+        margin: 20px auto;
+        width: 90%;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero img {
+        max-width: 100%;
+        margin-top: 20px;
+    }
+}
+
+/* Estilo para enlaces de contacto con íconos */
+.contact-link {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: #b0b0b0;
+    text-decoration: none;
+    margin: 10px 0;
+    transition: color 0.3s ease-in-out;
+}
+
+.contact-link img {
+    width: 24px; /* Tamaño de los iconos */
+    height: 24px;
+    margin-right: 10px;
+}
+/* Efecto hover en botones */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #3a7df1;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #1d5ac8;
+    transform: scale(1.05); /* Efecto de leve agrandamiento */
+}
+
+/* Efecto hover en íconos de contacto */
+.contact-link:hover img {
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Animación de fade-in */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Secciones con animación */
+section {
+    opacity: 0; /* Inicialmente invisible */
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+/* Aseguramos que permanezca visible después de la animación */
+section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
