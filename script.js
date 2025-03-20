@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // ===== Cambiar secciones al hacer clic en los enlaces del menú =====
     const menuLinks = document.querySelectorAll(".menu-link");
     
     menuLinks.forEach(link => {
@@ -13,21 +14,33 @@ document.addEventListener("DOMContentLoaded", function () {
             // Obtener la sección correspondiente al link clicado
             const targetSection = document.getElementById(this.dataset.target);
             targetSection.classList.add("active");
+
+            // Cerrar el menú hamburguesa después de hacer clic en una opción (en móviles)
+            document.getElementById("mobile-menu").classList.remove("active");
         });
     });
-});
-document.addEventListener("DOMContentLoaded", function () {
-    const modeToggle = document.getElementById("mode-toggle");
-    const body = document.body;
 
-    modeToggle.addEventListener("click", function () {
-        body.classList.toggle("light-mode");
+    // ===== Menú Hamburguesa en móviles =====
+    const menuToggle = document.getElementById("menu-toggle");
+    const closeMenu = document.getElementById("close-menu");
+    const mobileMenu = document.getElementById("mobile-menu");
 
-        // Cambiar el texto del botón
-        if (body.classList.contains("light-mode")) {
-            modeToggle.innerHTML = "🌙 Modo Oscuro";
-        } else {
-            modeToggle.innerHTML = "☀️ Modo Claro";
-        }
-    });
+    if (menuToggle && closeMenu && mobileMenu) {
+        // Abrir el menú al hacer clic en el icono
+        menuToggle.addEventListener("click", function () {
+            mobileMenu.classList.add("active");
+        });
+
+        // Cerrar el menú al hacer clic en la X
+        closeMenu.addEventListener("click", function () {
+            mobileMenu.classList.remove("active");
+        });
+
+        // Cerrar el menú si se hace clic fuera de él
+        document.addEventListener("click", function (event) {
+            if (!mobileMenu.contains(event.target) && event.target !== menuToggle) {
+                mobileMenu.classList.remove("active");
+            }
+        });
+    }
 });
